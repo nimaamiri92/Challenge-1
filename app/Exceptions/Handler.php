@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use League\Flysystem\Exception;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -34,7 +35,11 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            //
+            if ($e instanceof Exception){
+                response([
+                    'Error' => $e->getMessage()
+                ],400);
+            }
         });
     }
 }
