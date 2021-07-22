@@ -6,6 +6,9 @@
         "framework",
         "laravel"
     ],
+    "test":[
+	    "test":"test"
+    ],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
